@@ -25,8 +25,8 @@ before link for details.
 -  Update the code from `src` folder
 -  But version in `package.json`
 -  Create `CHANGELOG.md` entry if change log file is used
--  npm run all
--  git commit -am "..." <version>
--  git tag -sm <version> <version>
--  git push --follow-tags
+-  `npm run all`
+-  `git commit -am "..." <version>`
+-  `git tag -sm <version> <version>`
+-  `git push --follow-tags`
 -  Check if new version is publised in the releases
