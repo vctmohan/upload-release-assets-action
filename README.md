@@ -26,7 +26,7 @@ before link for details.
 -  But version in `package.json`
 -  Create `CHANGELOG.md` entry if change log file is used
 -  npm run all
--  git commit -am "..." <version>
--  git tag -sm <version> <version>
+-  git commit -m "..."
+-  git tag -m <version> <version>
 -  git push --follow-tags
 -  Check if new version is publised in the releases
