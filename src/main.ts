@@ -215,14 +215,11 @@ const assetDownloadUrlIfCurrentNotOverWritable = async (
   overwrite: boolean,
   octokit: Octokit
 ): Promise<string | undefined> => {
-  const assets = await octokit.paginate(
-    octokit.rest.repos.listReleaseAssets,
-    {
-      owner,
-      repo,
-      release_id: release.data.id
-    }
-  )
+  const assets = await octokit.paginate(octokit.rest.repos.listReleaseAssets, {
+    owner,
+    repo,
+    release_id: release.data.id
+  })
   const duplicateAsset = assets.find(a => a.name === assetName)
   if (duplicateAsset !== undefined) {
     core.debug(`An asset called ${assetName} already exists in release ${tag}.`)
@@ -298,6 +295,10 @@ const run = async (): Promise<void> => {
     const title = getReleaseTitle(tag)
 
     const {owner, repo} = getContext()
+
+    const octokit: Octokit = new Octokit({
+      auth: token
+    })
 
     const release = await getReleaseByTag(
       owner,
